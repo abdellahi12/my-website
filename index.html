@@ -1,74 +1,40 @@
 <!DOCTYPE html>
 <html lang="ar">
-<head >
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحتي الشخصية</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: center;
-        }
-        h1 {
-            color: #007BFF;
-        }
-        p {
-            font-size: 18px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <h1>مرحبًا! أنا عبدالله</h1>
-    <p>أهلاً وسهلاً بكم في صفحتي الشخصية. أنا مطور ويب مبتدئ.</p>
-    <button>اضغط هنا</button>
-    <img src="abdellahi.jpg" alt="صورة عبدالله">
-    
-    <h2>مواهبي</h2>
-    <ul>
-        <li>برمجة مواقع الإنترنت</li>
-        <li>تصميم واجهات المستخدم</li>
-        <li>كتابة الأكواد بشكل نظيف</li>
-    </ul>
-    
-    <h2>تفاصيل إضافية</h2>
-    <table>
-        <tr>
-            <th>الاسم</th>
-            <th>العمر</th>
-        </tr>
-        <tr>
-            <td>عبدالله</td>
-            <td>18</td>
-        </tr>
-    </table>
-</body>
-</html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript التجربة الأولى</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقع دراستك</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>مرحبًا بكم في موقعي!</h1>
-    <button onclick="showMessage()">اضغط هنا</button>
+  <div class="container">
+    <h1>مرحبًا، لقد دخلت إلى موقع دراستك</h1>
+    <p>ماذا يمكن أن أساعدك؟</p>
+    <button id="addButton">إضافة دروس</button>
+  </div>
 
-    <script>
-        function showMessage() {
-            alert("مرحبًا! لقد ضغطت على الزر.");
-        }
-    </script>
+  <!-- نافذة اختيار المواد -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>اختر المادة الدراسية</h2>
+      <ul>
+        <li><button class="subject-btn" data-subject="math">الرياضيات</button></li>
+        <li><button class="subject-btn" data-subject="physics">الفيزياء</button></li>
+        <li><button class="subject-btn" data-subject="chemistry">الكيمياء</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- نافذة الملفات -->
+  <div class="modal" id="fileModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="fileModalTitle"></h2>
+      <ul id="fileList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
