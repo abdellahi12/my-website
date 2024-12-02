@@ -1,0 +1,47 @@
+// عناصر DOM
+const addButton = document.getElementById("addButton");
+const modal = document.getElementById("modal");
+const fileModal = document.getElementById("fileModal");
+const closeBtns = document.querySelectorAll(".close");
+const subjectButtons = document.querySelectorAll(".subject-btn");
+const fileModalTitle = document.getElementById("fileModalTitle");
+const fileList = document.getElementById("fileList");
+
+// بيانات الملفات
+const files = {
+  math: ["الرياضيات العلمية - مرجع 1", "الرياضيات العلمية - مرجع 2"],
+  physics: ["الفيزياء - مرجع 1", "الفيزياء - مرجع 2"],
+  chemistry: ["الكيمياء - مرجع 1", "الكيمياء - مرجع 2"],
+};
+
+// فتح نافذة اختيار المواد
+addButton.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+// إغلاق النوافذ
+closeBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    modal.style.display = "none";
+    fileModal.style.display = "none";
+  });
+});
+
+// عرض الملفات بناءً على المادة المختارة
+subjectButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const subject = button.getAttribute("data-subject");
+    fileModalTitle.textContent = كتب ${button.textContent};
+    fileList.innerHTML = files[subject]
+      .map((file) => <li>${file}</li>)
+      .join("");
+    modal.style.display = "none";
+    fileModal.style.display = "flex";
+  });
+});
+
+// إغلاق النوافذ عند الضغط خارجها
+window.addEventListener("click", (event) => {
+  if (event.target === modal) modal.style.display = "none";
+  if (event.target === fileModal) fileModal.style.display = "none";
+});
